@@ -1,4 +1,22 @@
+<template>
+  <div class="Content">
+    <div class="container">
+      <h1 class="Content__Title">{{ $t('home.title') }}</h1>
+      <p>{{ $t('home.introduction') }}</p>
+    </div>
+  </div>
+</template>
+
 <script>
-import Index from '~/pages/_lang/index'
-export default Index
+export default {
+  nuxtI18n: {
+    paths: {
+      fr: '/fr',
+      en: '/'
+    }
+  },
+  head() {
+    return { title: this.$t('home.title') }
+  }
+}
 </script>

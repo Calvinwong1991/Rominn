@@ -12,7 +12,11 @@ import { setContext, getLocation, getRouteData } from './utils'
 import { createStore } from './store.js'
 
 /* Plugins */
-import nuxt_plugin_i18n_1fba523a from 'nuxt_plugin_i18n_1fba523a' // Source: ..\\plugins\\i18n.js
+import nuxt_plugin_pluginseo_7509db12 from 'nuxt_plugin_pluginseo_7509db12' // Source: ./nuxt-i18n\\plugin.seo.js
+import nuxt_plugin_pluginrouting_db1733ee from 'nuxt_plugin_pluginrouting_db1733ee' // Source: ./nuxt-i18n\\plugin.routing.js
+import nuxt_plugin_pluginmain_307f2bf4 from 'nuxt_plugin_pluginmain_307f2bf4' // Source: ./nuxt-i18n\\plugin.main.js
+import nuxt_plugin_axios_322b37a0 from 'nuxt_plugin_axios_322b37a0' // Source: ./axios.js
+import nuxt_plugin_axios_3566aa80 from 'nuxt_plugin_axios_3566aa80' // Source: ..\\plugins\\axios
 
 
 // Component: <no-ssr>
@@ -151,7 +155,11 @@ async function createApp (ssrContext) {
 
   // Plugin execution
   
-  if (typeof nuxt_plugin_i18n_1fba523a === 'function') await nuxt_plugin_i18n_1fba523a(app.context, inject)
+  if (typeof nuxt_plugin_pluginseo_7509db12 === 'function') await nuxt_plugin_pluginseo_7509db12(app.context, inject)
+  if (typeof nuxt_plugin_pluginrouting_db1733ee === 'function') await nuxt_plugin_pluginrouting_db1733ee(app.context, inject)
+  if (typeof nuxt_plugin_pluginmain_307f2bf4 === 'function') await nuxt_plugin_pluginmain_307f2bf4(app.context, inject)
+  if (typeof nuxt_plugin_axios_322b37a0 === 'function') await nuxt_plugin_axios_322b37a0(app.context, inject)
+  if (typeof nuxt_plugin_axios_3566aa80 === 'function') await nuxt_plugin_axios_3566aa80(app.context, inject)
   
 
   // If server-side, wait for async component to be resolved first

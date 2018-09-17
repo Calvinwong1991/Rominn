@@ -1,25 +1,40 @@
-import Vue from 'vue'
-import VueI18n from 'vue-i18n'
+/* @Author: calvin
+ * @Date: 2018-09-17 16:40:38
+ * @Name: i18n
+ */
 
-Vue.use(VueI18n)
+// import Vue from 'vue'
+// import VueI18n from 'vue-i18n'
 
-export default ({ app, store }) => {
-  // Set i18n instance on app
-  // This way we can use it in middleware and pages asyncData/fetch
-  app.i18n = new VueI18n({
-    locale: store.state.locale,
-    fallbackLocale: 'en',
-    messages: {
-      'en': require('~/locales/en.json'),
-      'fr': require('~/locales/fr.json')
-    }
-  })
+// Vue.use(VueI18n)
 
-  app.i18n.path = (link) => {
-    if (app.i18n.locale === app.i18n.fallbackLocale) {
-      return `/${link}`
-    }
+// export default ({ app, store }) => {
+//   // Set i18n instance on app
+//   // This way we can use it in middleware and pages asyncData/fetch
+//   app.i18n = new VueI18n({
+//     locale: store.state.locale,
+//     fallbackLocale: 'en',
+//     messages: {
+//       'en': require('~/locales/en.json'),
+//       'fr': require('~/locales/fr.json')
+//     }
+//   })
 
-    return `/${app.i18n.locale}/${link}`
+//   app.i18n.path = (link) => {
+//     if (app.i18n.locale === app.i18n.fallbackLocale) {
+//       return `/${link}`
+//     }
+
+//     return `/${app.i18n.locale}/${link}`
+//   }
+// }
+
+export default ({ app }) => {
+  app.i18n.beforeLanguageSwitch = (oldLocale, newLocale) => {
+    console.log(oldLocale, newLocale)
+  }
+
+  app.i18n.onLanguageSwitched  = (oldLocale, newLocale) => {
+    console.log(oldLocale, newLocale)
   }
 }

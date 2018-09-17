@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 
+import '..\\assets\\css\\index.scss'
+
 
 let layouts = {
 
@@ -11,7 +13,7 @@ let layouts = {
 let resolvedLayouts = {}
 
 export default {
-  head: {"meta":[],"link":[],"style":[],"script":[]},
+  head: {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"renderer","content":"webkit"},{"hid":"keywords","name":"keywords","content":"calqinBlog, vue, nodejs, ssr, i18n, calvin"},{"hid":"description","name":"description","content":"calqinBlog是一个小型私人博客，用于记录文章，日记，相册，个人资料的web应用。"},{"hid":"mobile-web-app-capable","name":"mobile-web-app-capable","content":"yes"},{"hid":"apple-mobile-web-app-title","name":"apple-mobile-web-app-title","content":"Rominn"},{"hid":"theme-color","name":"theme-color","content":"#ff6e36"},{"hid":"og:type","name":"og:type","property":"og:type","content":"website"},{"hid":"og:title","name":"og:title","property":"og:title","content":"Rominn"},{"hid":"og:site_name","name":"og:site_name","property":"og:site_name","content":"Rominn"},{"hid":"og:description","name":"og:description","property":"og:description","content":"This is a personal blog."}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.38875894.json"}],"style":[],"script":[],"title":"Rominn","htmlAttrs":{"lang":"en"}},
   render(h, props) {
     const loadingEl = h('nuxt-loading', { ref: 'loading' })
     const layoutEl = h(this.layout || 'nuxt')

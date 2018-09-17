@@ -8,3 +8,5 @@ This is a personal blog.
 https://nuxtjs.org/examples/i18n
 
 https://github.com/kazupon/vue-i18n
+
+rss ngnix koa mongodb sw pwa lazyload markdown nuxt vue 

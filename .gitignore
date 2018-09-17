@@ -8,6 +8,4 @@ node_modules
 build/env.js
 dist/
 data/
-.idea
-yarn-error.log
-src/config/app.js
+.nuxt

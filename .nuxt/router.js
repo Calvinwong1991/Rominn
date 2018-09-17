@@ -3,10 +3,8 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _1748e6d3 = () => import('..\\pages\\about.vue' /* webpackChunkName: "pages_about" */).then(m => m.default || m)
-const _3700c198 = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
-const _12a57b0f = () => import('..\\pages\\_lang\\index.vue' /* webpackChunkName: "pages__lang_index" */).then(m => m.default || m)
-const _1a24bf6c = () => import('..\\pages\\_lang\\about.vue' /* webpackChunkName: "pages__lang_about" */).then(m => m.default || m)
+const _2254ff39 = () => import('..\\pages\\about.vue' /* webpackChunkName: "pages_about" */).then(m => m.default || m)
+const _420cd9fe = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
 
 
 
@@ -67,24 +65,24 @@ export function createRouter () {
     scrollBehavior,
     routes: [
 		{
+			path: "/en/about",
+			component: _2254ff39,
+			name: "about___en"
+		},
+		{
 			path: "/about",
-			component: _1748e6d3,
-			name: "about"
+			component: _2254ff39,
+			name: "about___cn"
+		},
+		{
+			path: "/en/",
+			component: _420cd9fe,
+			name: "index___en"
 		},
 		{
 			path: "/",
-			component: _3700c198,
-			name: "index"
-		},
-		{
-			path: "/:lang",
-			component: _12a57b0f,
-			name: "lang"
-		},
-		{
-			path: "/:lang/about",
-			component: _1a24bf6c,
-			name: "lang-about"
+			component: _420cd9fe,
+			name: "index___cn"
 		}
     ],
     
