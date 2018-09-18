@@ -1,12 +1,18 @@
-export const state = () => ({
-  locales: ['en', 'fr'],
-  locale: 'en'
-})
+/* @Author: calvin
+ * @Date: 2018-09-18 15:32:19
+ * @Name: store
+ */
 
-export const mutations = {
-  SET_LANG(state, locale) {
-    if (state.locales.indexOf(locale) !== -1) {
-      state.locale = locale
-    }
-  }
+import vue from 'vue'
+import vuex from 'vuex'
+
+import article from './module/artilce'
+import communal from './module/communal'
+
+vue.use(vuex)
+
+export default () => {
+  return new vuex.Store({
+    modules: { article, communal }
+  })
 }

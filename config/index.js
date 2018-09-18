@@ -2,8 +2,8 @@
  * @Date: 2018-09-17 17:48:48
  * @Name: config
  */
-const en = require('../locales/en.js')
-const cn = require('../locales/cn.js')
+const en = require('../locales/en-US.js')
+const cn = require('../locales/cn-CN.js')
 const I18n = {
   locales: [
     {
@@ -19,12 +19,17 @@ const I18n = {
   defaultLocale: 'cn',
   lazy: true,
   seo: true,
+  parsePages: false,
   vueI18n: {
     fallbackLocale: 'cn',
     messages: { en, cn }
+  },
+  vuex: {
+    moduleName: 'I18n',
+    mutations: {
+      setLocale: 'I18N_SET_LOCALE'
+    }
   }
 }
 
-module.exports = {
-  I18n
-}
+module.exports = { I18n }

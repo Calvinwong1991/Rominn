@@ -1,91 +1,129 @@
 <template>
   <div>
-    <header class="Header">
-      <div class="container">
-        <h1 class="Header__Title">Nuxt i18n</h1>
-        <nav class="Header__Menu">
-          <nuxt-link :to="localePath('index')" class="Header__Link" exact>
-            {{ $t('links.home') }}
-          </nuxt-link>
-          <nuxt-link :to="localePath('about')" class="Header__Link" exact>
-            {{ $t('links.about') }}
-          </nuxt-link>
-          <!-- <nuxt-link v-if="$i18n.locale === 'en'" :to="`localePath('')` + $route.fullPath" class="Header__Link" active-class="none" exact>
-            {{ $t('links.french') }}
-          </nuxt-link> -->
-         
-        </nav>
-      </div>
+    <header>
+      <nav>
+        <nuxt-link :to="localePath('index')">
+          {{ $t('home') }}
+        </nuxt-link>
+        <nuxt-link :to="localePath('about')">
+          {{ $t('about') }}
+        </nuxt-link>
+        <nuxt-link
+          v-for="(locale, i) in showLocales"
+          :key="i"
+          :to="switchLocalePath(locale.code)">
+          {{ locale.name }}
+        </nuxt-link>
+      </nav>
     </header>
-    <nuxt />
+    <nuxt/>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  computed: {
+    showLocales () {
+      return this.$i18n.locales.filter(locale => locale.code !== this.$i18n.locale)
+    }
+  }
+}
 </script>
 
 <style>
-*, *:before, *:after {
-  padding: 0;
-  margin: 0;
+html {
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-html, body {
-  background-color: #fff;
-  color: #2e2f30;
-  letter-spacing: 0.5px;
-  font-size: 18px;
-  font-family: "Source Sans Pro", Arial, sans-serif;
-  height: 100vh;
+
+body {
+  padding-bottom: 30px;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
   margin: 0;
 }
-.container {
-  width: 75%;
-  margin: 0 auto;
+
+.nuxt-progress {
+  z-index: 10;
 }
-.container:after {
-  content: "";
-  display: table;
-  clear: both;
+
+h1 {
+  text-align: left;
+  margin-bottom: 20px;
 }
-.Header {
+
+p {
+  text-align: left;
+}
+
+header {
+  width: 100%;
+  background: #3b8070;
   color: #fff;
-  height: 80px;
-  line-height: 80px;
-  background-color: #2e2f30;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: right;
 }
-.Header__Title {
-  float: left;
-  font-weight: 300;
-  font-size: 30px;
-}
-.Header__Menu {
-  float: right;
-}
-.Header__Link {
-  font-size: 16px;
+
+header a {
   color: #fff;
-  border: 1px solid #fff;
-  padding: 7px 12px;
-  text-transform: uppercase;
   text-decoration: none;
-  border-radius: 5px;
-  margin-left: 10px;
+  text-transform: uppercase;
+  padding: 0 15px;
 }
-.Header__Link:hover {
-  color: #2e2f30;
-  background-color: #fff;
+
+@media (max-width: 767px) {
+  header a {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+  }
 }
-.nuxt-link-active {
-  color: cyan;
-}
-.Content {
-  padding: 50px 0;
+
+.container {
+  min-height: 100vh;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  margin: auto;
 }
-.Content__Title {
-  font-weight: 300;
-  padding-bottom: 30px;
+
+.button--green {
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #3b8070;
+  color: #3b8070;
+  text-decoration: none;
+  padding: 10px 30px;
+}
+
+.button--green:hover {
+  color: #fff;
+  background-color: #3b8070;
+}
+
+.button--grey {
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #35495e;
+  color: #35495e;
+  text-decoration: none;
+  padding: 10px 30px;
+  margin-left: 15px;
+}
+
+.button--grey:hover {
+  color: #fff;
+  background-color: #35495e;
 }
 </style>

@@ -1,22 +1,19 @@
 <template>
-  <div class="Content">
-    <div class="container">
-      <h1 class="Content__Title">{{ $t('about.title') }}</h1>
-      <p>{{ $t('about.introduction') }}</p>
+  <section class="container">
+    <div>
+      <h1>{{ $t('about') }}</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
-export default {
-  nuxtI18n: {
-    paths: {
-      fr: '/fr/about',
-      en: '/about'
-    }
-  },
-  head() {
-    return { title: this.$t('about.title') }
-  }
-}
+export default {}
 </script>
